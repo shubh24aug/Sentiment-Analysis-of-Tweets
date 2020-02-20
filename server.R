@@ -37,18 +37,18 @@ shinyServer(function(input, output) {
   #Sentiment Bar Plot
   output$barPlot = renderPlot({
     
-  tweets.text <- gsub("[[:punct:]]"," ",rawData()$text)
-  tweets.text <- gsub("http\\w+"," ", tweets.text)
-  tweets.text <- tolower(tweets.text)
-  tweets.text <- gsub("rt"," ",tweets.text)
-  tweets.text <- gsub("@\\w+"," ",tweets.text)
-  tweets.text <- gsub("[|\t]{2,}"," ",tweets.text)
-  tweets.text <- gsub("^ ","",tweets.text)
-  tweets.text <-  gsub(" $","",tweets.text)
-  tweets.text <- gsub('[[:punct:]]','',tweets.text)
-  tweets.text <- gsub('[[:cntrl:]]','',tweets.text)
-  tweets.text <- gsub('\\d+','',tweets.text)
-  tweets.text <- gsub('\n','',tweets.text)
+    tweets.text <- gsub("[[:punct:]]"," ",rawData()$text)
+    tweets.text <- gsub("http\\w+"," ", tweets.text)
+    tweets.text <- tolower(tweets.text)
+    tweets.text <- gsub("rt"," ",tweets.text)
+    tweets.text <- gsub("@\\w+"," ",tweets.text)
+    tweets.text <- gsub("[|\t]{2,}"," ",tweets.text)
+    tweets.text <- gsub("^ ","",tweets.text)
+    tweets.text <-  gsub(" $","",tweets.text)
+    tweets.text <- gsub('[[:punct:]]','',tweets.text)
+    tweets.text <- gsub('[[:cntrl:]]','',tweets.text)
+    tweets.text <- gsub('\\d+','',tweets.text)
+    tweets.text <- gsub('\n','',tweets.text)
 
     #Sentiment Analysis
   dmt_scr <<- get_nrc_sentiment(tweets.text)
